@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta name="viewport" content="width=divice-width initial-scale=1.0"></meta>
+        <title>Create Your Resume</title>
+    </head>
+    <body>
+        <div id="container">
+          <h1><b>Create Resume</b></h1>
+            <div class="basic-inputs">
+            <h3><b>Basic Details</b></h3>
+           <label>Full Name : </label>
+     <input type="text" Placeholder="Name" id="name">
+                <br>
+                 <label>Gmail : </label>
+                <input type="email" id="gamil" Placeholder="Gamil">
+                <br>
+                 <label>Mobile no : </label>
+                <input type="telephone" id="mobile" Placeholder="Telephone" onkeyup="space(this.value)" minlength=10 maxlength=10>
+                <br>
+                <label>Address : </label>
+                <input type="Address" id="address" Placeholder="Address">
+                <br>
+                <label>PIN : </label>
+  <input type="pin" id="pin" minlength="6"maxlength="6" Placeholder="PIN" onkeyup="gotSpace(this.value);">
+               <h3><b>Qualification</b></h3>
+               <label>Higher Qualification : </label>
+               <input type="text" placeholder=" higher" id="Qualification">
+               <br>
+               <label>Year of pass out: </label><br>
+               <input type="date" placeholder="year"id="pass">
+               <br>
+        <label>Secured Grade/percentage: </label>
+               <input type="number" placeholder="Marks" id="marks">
+               <br>
+               <label>Tell something About You :</label>
+        <input type="text" placeholder="Hobbies etc" id="hobbies">
+        <h3><b>Work Experience</b></h3>
+        <label>Eperience : </label>
+        <input type="text" placeholder="Work" id="experience">
+        <h3><b>Skills</b></h3>
+        <label>Skills : </label>
+        <input type="text" placeholder="Skills" id="skills">
+        <br>
+        <button onclick="verify()">Submit</button>
+            </div>
+        </div>
+        <style>
+            body {
+    text-align:center;
+    height:100%;
+}
+h3{
+    background-color:blue;
+    padding:10px;
+    border-radius:10px;
+    color:white;
+}
+h1{
+    background-color:blue;
+    padding:20px;
+    height:20px;
+    color:white;
+    border-radius:20px 0px 20px 0px;
+}
+#container{
+    border:none;
+    box-shadow:2px 2px 12px black;
+    padding:10px;
+    border-radius:20px;
+    width:90%;
+    margin:0px auto;
+    margin-top:20px;
+}
+label,input{
+    margin:30px;
+}
+#career{
+    height:150px;
+    width:70%;
+    border:2px;
+    border-style:dotted;
+    outline:none;
+}
+input{
+    width:50%;
+    text-align:center;
+    margin:10px auto;
+    height:18px;
+    border-radius:px;
+    border:none;
+    outline:none;
+    text-transform:bolder;
+    font-size:20px;
+}
+input:hover{
+    border:2px;
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    border-bottom-color:green;
+    border-bottom-style:solid;
+    transition:0.1s;
+}
+#ResumeOutput{
+    display:none;
+}
+
+        </style>
+        <script>
+        //Resume-Inputs Script
+        var inputs = document.querySelector("input");
+var nam = document.getElementById("name");
+var gmail = document.getElementById("gamil");
+var mobile = document.getElementById("mobile");
+var address = document.getElementById("address");
+var qualification= document.getElementById("Qualification");
+var pin = document.getElementById("pin");
+var passout = document.getElementById("pass");
+var marks= document.getElementById("marks");
+var hobbies = document.getElementById("hobbies");
+var experience = document.getElementById("experience");
+var skills = document.getElementById("skills");
+
+gmail.addEventListener("input",()=>{
+       gmail.value=gmail.value.toLowerCase();
+   });
+   nam.addEventListener("input",()=>{
+       nam.value=nam.value.toUpperCase();
+   });
+
+   var pattern = /\s/g;
+   
+   function gotSpace(data){
+  var isSpace=pattern.test(data);
+  var regex = /[^0-9]/g;
+  pin.value=pin.value.replace(regex,"");
+   if(isSpace){
+     alert("In the 'PIN CODE' space is not allowed");
+         pin.value="";
+     }
+   }
+
+   function space(data){
+  var isSpace=pattern.test(data);
+  var regex = /[^0-9]/g;
+  mobile.value=mobile.value.replace(regex,"");
+   if(isSpace){
+     alert("In the mobile number space is not allowed");
+         mobile.value="";
+   }
+   if((data.charAt(0)!=9)&&(data.charAt(0)!=8)&&(data.charAt(0)!=7)&&(data.charAt(0)!=6))
+   {
+      alert("not a valid number,mobile number starts with 9,8,7,6 only...");
+       mobile.value="";
+   }
+ }
+ function verify(){
+  if(
+(nam.value=="")||
+(gmail.value=="")||
+(address.value=="")||
+(pin.value=="")||
+(qualification.value=="")||
+(skills.value=="")||
+(mobile.value=="")||
+(hobbies.value=="")||
+(passout.value=="")||
+(marks.value=="")||
+(experience.value=="")
+    )
+{
+    alert("Fill all fields to continue");
+   }
+   else{
+   resumeLoader();
+   }
+}
+function resumeLoader(){
+    var amountLoaded = 0; 
+    progressBarSim(amountLoaded);
+}
+function resumeOutput(){
+    var container = document.getElementById("container");
+   var resumeOutput =document.getElementById("ResumeOutput");
+var fieldName = document.getElementById("Name-resume");
+var mobileResume = document.getElementById("Mobile-resume");
+var gmailResume =document.getElementById("Gamil-resume");
+var addressResume=document.getElementById("Address-resume");
+var pinResume= document.getElementById("Pin-resume");
+pinResume.innerHTML=pin.value;
+addressResume.innerHTML=address.value;
+gmailResume.innerHTML=gmail.value;
+mobileResume.innerHTML=mobile.value;
+  fieldName.innerHTML=nam.value;
+  container.style.display="none";
+  resumeOutput.style.display="block";
+  var qualificationResume =document.getElementById("QualificationName-resume");  qualificationResume.innerHTML=qualification.value;
+  var passoutResume =document.getElementById("Passout-resume");  passoutResume.innerHTML=passout.value;
+  var marksResume =document.getElementById("Marks-resume");  marksResume.innerHTML=marks.value;
+  var hobbiesResume =document.getElementById("Hobbies-resume");  hobbiesResume.innerHTML=hobbies.value;
+var experienceResume =document.getElementById("experience-resume");    experienceResume.innerHTML=experience.value;
+  var skillsResume =document.getElementById("Skills-resume");  
+  skillsResume.innerHTML=skills.value;
+}
+        </script>
+        <div id="ResumeOutput">
+            <h1><b>RESUME</b></h1>
+            <h2 style="color:green" id="Name-resume"><b>Name</b></h2>
+   <p id="Mobile-resume">Mobile Number</p>
+             <p id="Gamil-resume" style="color:blue">GAMIL</p>
+        <p id="Address-resume">Address here</p>
+<p id="Pin-resume">Pin</p>
+
+<h2><b>OBJECTIVE</b></h2>
+   <p><b>To work with full strengthin dynamic organization which provides new challenges That helps to add value to the organizations and the individuals</b></p>
+   
+   <h2><b>EDUCATION</b></h2>
+ <p id="QualificationName-resume">Qualification</p>
+ <p id="Passout-resume"><b>Passout</b></p>
+ <p id="Marks-resume"><b>Marks</b></p>
+ 
+ <h2><b>HOBBIES</b></h2>
+ <p id="Hobbies-resume"><b>Hobbies</b></p>
+ 
+ <h2><b>WORK EXPERIENCE</b></h2>
+<p id="experience-resume"><b>Experience</b></p>
+
+<h2><b>SKILLS</b></h2>
+<p id="Skills-resume"><b>SKILLS</b></p>
+        </div>
+        <style>
+            #ResumeOutput{
+                text-align:left;
+                padding:20px;
+                border:1px;
+                border-style:solid;
+                border-color:black;
+                border-radius:5px;
+            }
+            h2{
+            color:green;
+            font-size:25px;
+            border-style:solid;
+            border:2px;
+            border-right:none;
+            border-left:none;
+            border-top:none;
+            border-bottom-color:grey;
+            border-bottom-style:solid;
+            }
+            p{
+              font-size:20px;
+            }
+        </style>
+        <center>
+    <div id="js-container">
+    <div id="content">
+    <progress id="progressBar" value="0" max="100" style="width:300px;"></progress> 
+    <label id="loading">Loading....</label>
+    <span id="status"></span> 
+    </div>
+    </div>
+    </center>
+    <script>
+     function progressBarSim(al) { 
+     var container = document.getElementById ("container");
+     var js = document.getElementById('js-container'); 
+     var bar = document.getElementById('progressBar'); 
+     var status = document.getElementById('status'); status.innerHTML = al+"%";
+      bar.value = al; al++; 
+          var sim = setTimeout("progressBarSim("+al+")",100);
+          js.style.display="block";
+          container.style.display="none";
+           if(al == 100){ 
+            status.innerHTML = "100%";      
+           bar.value = 100;     
+        clearTimeout(sim); 
+            js.style.display="none"
+            resumeOutput();
+         }
+  }
+    
+    </script>
+    <style>
+        #content{
+    padding-top:100%;
+}
+#js-container{
+    display:none;
+}
+#footer{
+    width:100%;
+    margin:0px auto;
+    padding:0px auto;
+    background:blue;
+    color:white;
+    border-radius:10px;
+}
+    </style>
+    <div id="footer">
+        <p>Developed by &copyVbCoders</p>
+    </div>
+    </body>
+</html>
