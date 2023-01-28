@@ -254,9 +254,47 @@ var experienceResume =document.getElementById("experience-resume");    experienc
 <h2><b>SKILLS</b></h2>
 <li id="Skills-resume"><b>SKILLS</b></li>
  <br><br>
+ <div id="personal">
+ <h2 style="color:black" align="center" id="personalHead"><b>Personal Information</b></h2>
+ <div class="label">Full name </div>:
+ <p class="value" class="Name-resume">NAME</p>
+ <div class="label">Gmail </div>:
+ <p class="value" class="Gmail-resume">Gmail</p>
+<div class="label">Mobile</div>:
+ <p class="value" class="Mobile-resume">mobile</p>
+ <div class="label">Address</div>:
+ <p class="value" class="Address-resume">Address</p>
+ <div class="label">Pin</div>:
+ <p class="value" class="Pin-resume">pin</p>
+ <br><br><br><br>
+    <p id="nameDiv" align="right">Your's Faithfully</p><br>
+  <p class="Name-resume">Name here</p>
+  </div>
+<p id="DateDiv">Date : </p>
+ <p id="date">Date here</p>
+ <br>
 <button id="print" onclick="window.print()">PRINT</button>
         </div>
         <style>
+        #nameDiv ,.Name-resume{
+        margin:0px ;
+        text-align:center;
+        }
+        #DateDiv ,#date{
+            margin:0px;
+            text-align:left;
+        }
+        #nameDiv,.Name-resume,#date,#DateDiv{
+            display:inline-block;
+        }
+        #personalHead{
+            font-size:30px;
+        }
+        #personal{
+        text-align:center;
+        margin:5px;
+        font-size:18px;
+        }
         #obj{
             text-align:center;
             width:100%;
