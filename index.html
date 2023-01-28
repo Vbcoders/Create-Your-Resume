@@ -9,37 +9,45 @@
           <h1><b>Create Resume</b></h1>
             <div class="basic-inputs">
             <h3><b>Basic Details</b></h3>
-           <label>Full Name : </label>
+           <label>Full Name :</label>
      <input type="text" Placeholder="Name" id="name">
                 <br>
-                 <label>Gmail : </label>
+                 <label>Gmail :</label>
                 <input type="email" id="gamil" Placeholder="Gamil">
                 <br>
-                 <label>Mobile no : </label>
+                 <label>Mobile no :</label>
                 <input type="telephone" id="mobile" Placeholder="Telephone" onkeyup="space(this.value)" minlength=10 maxlength=10>
                 <br>
-                <label>Address : </label>
+                <label>Address  :</label>
                 <input type="Address" id="address" Placeholder="Address">
                 <br>
-                <label>PIN : </label>
+                <label>PIN :</label>
   <input type="pin" id="pin" minlength="6"maxlength="6" Placeholder="PIN" onkeyup="gotSpace(this.value);">
                <h3><b>Qualification</b></h3>
-               <label>Higher Qualification : </label>
+               <label>Higher Qualification :</label>
                <input type="text" placeholder=" higher" id="Qualification">
                <br>
-               <label>Year of pass out: </label><br>
+               <label>Institute Name :</label>
+<input type="text" placeholder="institute" id="Institute">
+<br>
+<label>University :</label>
+<br>
+<input type="text" placeholder="University" id="University">
+<br>
+               <label>Year of pass out :</label>   
+               <br>
                <input type="date" placeholder="year"id="pass">
                <br>
-        <label>Secured Grade/percentage: </label>
-               <input type="number" placeholder="Marks" id="marks">
+        <label>Secured Grade/percentage :</label>
+               <input type="marks" placeholder="Marks" id="marks" minlength=2 maxlength=3>
                <br>
-               <label>Tell something About You :</label>
+       <label>Tell something About You :</label>
         <input type="text" placeholder="Hobbies etc" id="hobbies">
         <h3><b>Work Experience</b></h3>
         <label>Eperience : </label>
         <input type="text" placeholder="Work" id="experience">
         <h3><b>Skills</b></h3>
-        <label>Skills : </label>
+        <label>Skills :</label>
         <input type="text" placeholder="Skills" id="skills">
         <br>
         <button onclick="verify()">Submit</button>
@@ -109,6 +117,8 @@ input:hover{
         </style>
         <script>
         //Resume-Inputs Script
+var institute = document.getElementById("Institute");
+var university = document.getElementById("University");
         var inputs = document.querySelector("input");
 var nam = document.getElementById("name");
 var gmail = document.getElementById("gamil");
@@ -202,42 +212,57 @@ mobileResume.innerHTML=mobile.value;
 var experienceResume =document.getElementById("experience-resume");    experienceResume.innerHTML=experience.value;
   var skillsResume =document.getElementById("Skills-resume");  
   skillsResume.innerHTML=skills.value;
+  var instituteResume=document.getElementById("Institute-resume");
+ instituteResume.innerHTML=institute.value;
+ var universityResume=document.getElementById("University-resume");
+ universityResume.innerHTML=university.value;
 }
         </script>
         <div id="ResumeOutput">
-            <h1 is ="heding-resume"><b>RESUME</b></h1>
-            <h2 style="color:green" id="Name-resume"><b>Name</b></h2>
-   <p id="Mobile-resume">Mobile Number</p>
-             <p id="Gamil-resume" style="color:blue">GAMIL</p>
-        <p id="Address-resume">Address here</p>
-<p id="Pin-resume">Pin</p>
+   <h1 id="heding-resume"><b>RESUME</b></h1>
+           <h2 style="color:green" id="Name-resume"><b>Name</b></h2>
+   <div class="label">Mobile </div>:
+   <p class="value"id="Mobile-resume">Mobile Number</p>
+  <div class="label"> Gmail </div>:
+             <p id="Gamil-resume" class="value" style="color:blue">GAMIL</p>
+             <div class="label">Address 
+             </div>:
+        <p id="Address-resume" class="value">Address here</p>
+     <div class="label">PIN </div>:
+<p id="Pin-resume"class="value">Pin</p>
 
 <h2><b>OBJECTIVE</b></h2>
-   <p><b>To work with full strengthin dynamic organization which provides new challenges That helps to add value to the organizations and the individuals</b></p>
+   <p id="obj"><b>To work with full strengthin dynamic organization which provides new challenges That helps to add value to the organizations and the individuals</b></p>
    
    <h2><b>EDUCATION</b></h2>
- <p id="QualificationName-resume">Qualification</p>
- <p id="Passout-resume"><b>Passout</b></p>
- <p id="Marks-resume"><b>Marks</b></p>
- 
+   <div class="label"> Higher Qualification </div>:
+ <p class="value" id="QualificationName-resume">Qualification</p>
+  <div class="label">Institute </div>:
+ <p class="value" id="Institute-resume">Institute</p>
+   <div class="label">University </div>:
+ <p class="value" id="University-resume">University</p>
+<div class="label">Year of Pass </div>:
+<p class="value" id="Passout-resume"><b>Passout</b></p>
+<div class="label">Secured Marks </div>:
+ <p class="value" id="Marks-resume"><b>Marks</b></p>
  <h2><b>HOBBIES</b></h2>
- <p id="Hobbies-resume"><b>Hobbies</b></p>
- 
+ <div class="label">Hobbies </div>:
+ <p class="value"id="Hobbies-resume"><b>Hobbies</b></p>
  <h2><b>WORK EXPERIENCE</b></h2>
-<p id="experience-resume"><b>Experience</b></p>
+ <div class="label">Experience </div>:
+<p class="value"id="experience-resume"><b>Experience</b></p>
 
 <h2><b>SKILLS</b></h2>
-<p id="Skills-resume"><b>SKILLS</b></p>
+<div class="label">Skills </div>:
+<p class="value" id="Skills-resume"><b>SKILLS</b></p>
  <br><br>
 <button id="print" onclick="window.print()">PRINT</button>
         </div>
         <style>
-            #print{
-              font-size:20px;
-              color:white;
-              background:blue;
-              Padding:10px;
-           }
+        #obj{
+            text-align:center;
+            width:100%;
+             }
             #ResumeOutput{
                 text-align:left;
                 padding:20px;
@@ -245,11 +270,21 @@ var experienceResume =document.getElementById("experience-resume");    experienc
                 border-style:solid;
                 border-color:black;
                 border-radius:5px;
-                
             }
+            #print{
+              font-size:20px;
+              color:white;
+              Padding:10px;
+              background:blue;
+              border:none;
+              border-radius:10px;
+              text-align:center;
+           }
             #heding-resume{
-               text-align:center;
                font-size:30px;
+               background:none;
+               color:black;
+               text-align:center;
             }
             h2{
             color:green;
@@ -261,10 +296,23 @@ var experienceResume =document.getElementById("experience-resume");    experienc
             border-top:none;
             border-bottom-color:grey;
             border-bottom-style:solid;
+            text-align:left;
             }
-            p{
-              font-size:15px;
+            .label{
+            width:30%;
             }
+            .value{
+            width:50%;
+             }
+         .label,.value{
+           margin:4px;
+           padding:2px;
+           display:inline-block;
+         }
+          .label{
+          font-style:blold;
+          }
+            
         </style>
         <center>
     <div id="js-container">
@@ -302,11 +350,11 @@ var experienceResume =document.getElementById("experience-resume");    experienc
 #js-container{
     display:none;
 }
-#footer{
+#footer p{
     width:100%;
-    margin:0px auto;
-    padding:0px auto;
-    background:blue;
+    margin:10px auto;
+    padding:2px;
+    background:black;
     color:white;
     border-radius:10px;
 }
