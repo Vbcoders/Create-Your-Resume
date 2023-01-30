@@ -240,6 +240,10 @@ var experienceResume =document.getElementById("experience-resume");    experienc
      var dt = document.getElementById("date");
  dt.innerHTML=day +":"+month+":"+year;
  }
+   if(month<10){
+     var dt = document.getElementById("date");
+ dt.innerHTML=day +":"+"0"+month+":"+year;
+  }
  var dt = document.getElementById("date");
  dt.innerHTML=day +":"+month+":"+year;
 }
