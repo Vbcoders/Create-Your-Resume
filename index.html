@@ -217,6 +217,31 @@ var experienceResume =document.getElementById("experience-resume");    experienc
  instituteResume.innerHTML=institute.value;
  var universityResume=document.getElementById("University-resume");
  universityResume.innerHTML=university.value;
+ var className=document.getElementById("Nameresume");
+ className.innerHTML=nam.value;
+ var classGmail=document.getElementById("Gmailresume");
+ classGmail.innerHTML=gmail.value;
+ var classMobile=document.getElementById("Mobileresume");
+ classMobile.innerHTML=mobile.value;
+ var classAddress=document.getElementById("Addressresume");
+ classAddress.innerHTML=address.value;
+ var classPin=document.getElementById("Pinresume");
+ classPin.innerHTML=pin.value;
+ var cover=document.getElementById("resumeCover");
+ cover.innerHTML=nam.value;
+ classPin.innerHTML=pin.value;
+ var date = new Date();
+ var month = date.getMonth();
+ var day = date.getDate();
+ var year = date.getYear();
+ year = year-100;
+ if(month==0){
+     month = month+1;
+     var dt = document.getElementById("date");
+ dt.innerHTML=day +":"+month+":"+year;
+ }
+ var dt = document.getElementById("date");
+ dt.innerHTML=day +":"+month+":"+year;
 }
         </script>
         <div id="ResumeOutput">
@@ -255,23 +280,22 @@ var experienceResume =document.getElementById("experience-resume");    experienc
 <li id="Skills-resume"><b>SKILLS</b></li>
  <br><br>
 <br><br><br>
-<br><br><br>
-<br>
+<br><br>
  <div id="personal">
  <h2 style="color:black" align="center" id="personalHead"><b>Personal Information</b></h2>
  <div class="label">Full name </div>:
- <p class="value" class="Name-resume">NAME</p>
+ <p class="value" id="Nameresume">NAME</p>
  <div class="label">Gmail </div>:
- <p class="value" class="Gmail-resume">Gmail</p>
+ <p class="value" id="Gmailresume">Gmail</p>
 <div class="label">Mobile</div>:
- <p class="value" class="Mobile-resume">mobile</p>
+ <p class="value" id="Mobileresume">mobile</p>
  <div class="label">Address</div>:
- <p class="value" class="Address-resume">Address</p>
+ <p class="value" id="Addressresume">Address</p>
  <div class="label">Pin</div>:
- <p class="value" class="Pin-resume">pin</p>
+ <p class="value" id="Pinresume">pin</p>
  <br><br><br><br>
-    <p id="nameDiv" align="right">Your's Faithfully</p><br>
-  <p class="Name-resume">Name here</p>
+    <p id="nameDiv">Your's Faithfully</p><br>
+  <p id="resumeCover">Name here</p>
   </div>
 <p id="DateDiv">Date : </p>
  <p id="date">Date here</p>
@@ -279,22 +303,25 @@ var experienceResume =document.getElementById("experience-resume");    experienc
 <button id="print" onclick="window.print()">PRINT</button>
         </div>
         <style>
-        #nameDiv ,.Name-resume{
+        #nameDiv ,#resumeCover{
         margin:0px ;
         text-align:center;
+        }
+        #nameDiv{
+            text-align:center;
         }
         #DateDiv ,#date{
             margin:0px;
             text-align:left;
         }
-        #nameDiv,.Name-resume,#date,#DateDiv{
+        #nameDiv,resumeCover,#date,#DateDiv{
             display:inline-block;
         }
         #personalHead{
             font-size:20px;
         }
         #personal{
-        text-align:center;
+       margin-right:100px;
         margin:5px;
         font-size:18px;
         }
