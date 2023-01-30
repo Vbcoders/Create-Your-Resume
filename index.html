@@ -284,7 +284,7 @@ var experienceResume =document.getElementById("experience-resume");    experienc
 <li id="Skills-resume"><b>SKILLS</b></li>
  <br><br>
 <br><br><br>
-<br><br><br><br>
+<br><br><br><br><br><br>
  <div id="personal">
  <h2 style="color:black" align="center" id="personalHead"><b>Personal Information</b></h2>
  <div class="label">Full name </div>:
@@ -298,8 +298,7 @@ var experienceResume =document.getElementById("experience-resume");    experienc
  <div class="label">Pin</div>:
  <p class="value" id="Pinresume">pin</p>
  <br><br><br><br>
-    <p id="nameDiv">Your's Faithfully</p><br>
-  <p id="resumeCover">Name here</p>
+  (<p id="resumeCover">Name here</p>)
   </div>
 <p id="DateDiv">Date : </p>
  <p id="date">Date here</p>
@@ -307,12 +306,10 @@ var experienceResume =document.getElementById("experience-resume");    experienc
 <button id="print" onclick="window.print()">PRINT</button>
         </div>
         <style>
-        #nameDiv ,#resumeCover{
-        margin:0px ;
-        text-align:center;
-        }
-        #nameDiv{
-            text-align:center;
+        #resumeCover{
+         margin:5px ;
+        text-align:right;
+         font-style:bold;
         }
         #DateDiv ,#date{
             margin:0px;
@@ -330,7 +327,7 @@ var experienceResume =document.getElementById("experience-resume");    experienc
             border-top:none;
             border-bottom-color:black;
             border-bottom-style:solid;
-            width:90%;
+            width:100%;
         }
         #personal{
        margin-right:100px;
