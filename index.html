@@ -238,8 +238,10 @@ var experienceResume =document.getElementById("experience-resume");    experienc
  month = month+1;
      var dt = document.getElementById("date");
  dt.innerHTML=day +":"+month+":"+year;
-   if(month<10){
- dt.innerHTML=day+":"+"0"+month+":"+year;
+   if(month>=9){
+    month="0"+month;
+    dt.innerHTML=day+":"+month+":"+year;
+    }
   }
  dt.innerHTML=day +":"+month+":"+year;
 }
